@@ -1,0 +1,57 @@
+.works {
+  background-color: rgb(239, 239, 239);
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 50px auto 0; /* Added margin-top of 50px and set auto for horizontal centering */
+  }
+
+  .gallery-item {
+    position: relative;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgb(185, 180, 180); // White border
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); // Box shadow
+
+    &:hover {
+      // Dark overlay on hover
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      // Display name on hover
+      .image-name {
+        opacity: 1;
+        z-index: 2;
+      }
+    }
+
+    // Name display
+    .image-name {
+      position: absolute;
+      top: 50%; // Center vertically
+      left: 50%; // Center horizontally
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+}
